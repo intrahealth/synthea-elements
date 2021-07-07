@@ -30,7 +30,7 @@ cp src/main/resources/arabic-names.yml src/main/resources/names.yml
 
 Run synthea with names and location using custom config to override for periodic table
 ```sh
-./run_synthea -p 5 "Elements" -c src/main/resources/uk-synthea.properties
+./run_synthea -p 5 "Elements" -c src/main/resources/elements-synthea.properties
 ```
 
 ```txt
@@ -46,13 +46,14 @@ Max Age: 140
 Records: total=6, alive=5, dead=1
 ```
 
+Though the extension is *csv in the files, the country is Elements.
+
 ### Caveats
 
 * Why are there names in both `english` and `spanish` entries in the names files regardless of language? Synthea distributes names unevenly based on a a US demographic model. See this [issue](https://github.com/synthetichealth/synthea/issues/908#issuecomment-868730712). In order for all names to have equal probability, the hack is to put all names for any language are duplicated under `english` and `spanish` even if there are no English or Spanish names in the names file.
 
 ### Todo
 
-* Use another country code or non-country code.
 * Change other nouns
 
 ## DIY single-city location
@@ -118,7 +119,7 @@ Run Synthea with the example data with names substituted:
 ```sh
 # from synthea repo
 # cp src/main/resources/names.yml src/main/resources/names.yml.bak
-./run_synthea -p 5 "Elements" -c src/main/resources/uk-synthea.properties
+./run_synthea -p 5 "Elements" -c src/main/resources/elements-synthea.properties
 ```
 
 It is not necessary to use the uk-synthea-properties, they can be changed from the command line:
@@ -128,7 +129,7 @@ It is not necessary to use the uk-synthea-properties, they can be changed from t
 --generate.demographics.default_file geography/demographics_uk.csv \
 --generate.geography.zipcodes.default_file geography/zipcodes_uk.csv \
 --generate.geography.timezones.default_file geography/timezones_uk.csv \
---generate.geography.country_code UK \
+--generate.geography.country_code Elements \
 --generate.payers.insurance_companies.default_file payers/insurance_companies_uk.csv \
 --generate.payers.insurance_companies.medicare "National Health Service" \
 --generate.payers.insurance_companies.medicaid "National Health Service" \
