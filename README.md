@@ -69,17 +69,17 @@ cp -r example/ ~/src/github.com/intrahealth/synthea-elements/
 
 In the example from synthea-international, note the geographies:
 
-City: Shropshire
-County: Shrewsbury
-State: West Midlands
-State abbreviation: WMS
+* City: Shropshire
+* County: Shrewsbury
+* State: West Midlands
+* State abbreviation: WMS
 
 Determine the city of choice, county, and state. In this repo:
 
-City: Periodic
-County: Table
-State: Elements
-State abbreviation: Elements
+* City: Periodic
+* County: Table
+* State: Elements
+* State abbreviation: Elements
 
 Use a text editor or the command line to find and replace instances of the city, county, state, and state abbreviation in the CSVs in src/main. For example, from the root of this repo on Unix-like systems:
 
