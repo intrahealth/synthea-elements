@@ -46,6 +46,10 @@ Max Age: 140
 Records: total=6, alive=5, dead=1
 ```
 
+### Caveats
+
+* Why are there names in both `english` and `spanish` entries in the names files regardless of language? Synthea distributes names unevenly based on a a US demographic model. See this [issue](https://github.com/synthetichealth/synthea/issues/908#issuecomment-868730712). In order for all names to have equal probability, the hack is to put all names for any language are duplicated under `english` and `spanish` even if there are no English or Spanish names in the names file.
+
 ### Todo
 
 * Use another country code or non-country code.
@@ -121,11 +125,11 @@ It is not necessary to use the uk-synthea-properties, they can be changed from t
 
 ```bash
 ./run_synthea -p 5 -s 123 "Elements" \
---generate.demographics.default_file geography/demographics_elements.csv \
---generate.geography.zipcodes.default_file geography/zipcodes_elements.csv \
---generate.geography.timezones.default_file geography/timezones_elements.csv \
---generate.geography.country_code PTE \
---generate.payers.insurance_companies.default_file payers/insurance_companies_elements.csv \
+--generate.demographics.default_file geography/demographics_uk.csv \
+--generate.geography.zipcodes.default_file geography/zipcodes_uk.csv \
+--generate.geography.timezones.default_file geography/timezones_uk.csv \
+--generate.geography.country_code UK \
+--generate.payers.insurance_companies.default_file payers/insurance_companies_uk.csv \
 --generate.payers.insurance_companies.medicare "National Health Service" \
 --generate.payers.insurance_companies.medicaid "National Health Service" \
 --generate.payers.insurance_companies.dual_eligible "National Health Service" \
